@@ -1,10 +1,11 @@
-//UI and LS Objects
-const ui = new UI();
+// UI and LS objects
+const ui = new UI()
+const ls = new LS()
 
-//event elements
+// event elements
 const form = document.querySelector('form');
 
-//event elements
+// events
 form.addEventListener('submit', addBook);
 
 function addBook(event){
@@ -17,13 +18,15 @@ function addBook(event){
     let author = authorInput.value;
     let isbn = isbnInput.value;
 
-    const book = new Book(title, author, isbn);
-
+    // create book
+    const book = new Book(title, author, isbn)
+    // add book value to visual by UI object
     ui.addBook(book)
+    // add book to LS
+    ls.addBook(book)
 
     titleInput.value = '';
     authorInput.value = '';
     isbnInput.value = '';
-
     event.preventDefault();
 }
